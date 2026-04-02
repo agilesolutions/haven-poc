@@ -1,6 +1,6 @@
 # Haven POC reference project 
-This is a reference project for the Haven POC. Demonstrates set of simple microservices, implemented in different languages, and using different databases. The project is used to test the Haven POC implementation and to demonstrate its capabilities.
-(FluxCD + Helm + Spring Boot + Keycloak + LGTM + service-to-service auth).
+This is a reference project for the Haven POC. [Haven](https://haven.commonground.nl/over-haven) is a standard for platform-independent cloud hosting and is part of the [Common Ground Initiative](https://commonground.nl/).
+Demonstrates set of simple microservices, implemented in different languages, and using different databases. The project is used to test the Haven POC implementation and to demonstrate its capabilities.(FluxCD + Helm + Spring Boot + Keycloak + LGTM + service-to-service auth).
 ## Structure GITOPS repo
 ```
 platform-gitops/
