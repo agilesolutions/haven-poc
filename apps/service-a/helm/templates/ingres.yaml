@@ -1,8 +1,10 @@
+{{- if .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: service-a-ingress
+  name: {{ include "app.fullname" . }}-ingress
 spec:
+  ingressClassName: {{ .Values.ingress.className }}
   rules:
     - host: {{ .Values.ingress.host }}
       http:
@@ -11,6 +13,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: service-a
+                name: {{ include "app.fullname" . }}
                 port:
-                  number: 8080
+                  number: 80
+  {{- end }}

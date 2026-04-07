@@ -1,3 +1,15 @@
-apiVersion: v2
-name: service-a
-version: 1.0.0
+image:
+  repository: service-a
+  tag: latest
+
+service:
+  port: 8080
+
+ingress:
+  enabled: true
+  className: nginx
+  host: service-a.local
+
+config:
+  featureToggle: true
+  maxOrders: 100

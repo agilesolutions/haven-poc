@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: orders-service
+  namespace: services
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./apps/service-a/helm
+      sourceRef:
+        kind: GitRepository
+        name: platform-gitops
+        namespace: flux-system
+  values:
+    image:
+      repository: service-a
+      tag: latest
+    service:
+      port: 8080
+    ingress:
+      enabled: true
+      className: nginx
+      host: service-a.local
