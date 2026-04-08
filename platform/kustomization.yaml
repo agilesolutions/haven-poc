@@ -6,5 +6,5 @@ resources:
   - cert-manager-namespace.yaml
   - keycloak.yaml
   - keycloak-namespace.yaml
-  - postgresql.yaml
-  - postgresql-namespace.yaml
+#  - postgresql.yaml
+#  - postgresql-namespace.yaml

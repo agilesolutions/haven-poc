@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: keycloak
-      version: "22.0.0"
+      version: "24.x"
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -41,6 +41,11 @@ spec:
         username: keycloak
         password: keycloak
         database: keycloak
+
+      primary:
+        persistence:
+          enabled: true
+          size: 1Gi
 
     resources:
       requests:
