@@ -18,3 +18,12 @@ spec:
   # Bitnami OCI registry for Helm charts
   url: oci://registry-1.docker.io/bitnamicharts
   interval: 1h  # How often Flux checks for new chart versions
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: ingress-nginx
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://kubernetes.github.io/ingress-nginx
