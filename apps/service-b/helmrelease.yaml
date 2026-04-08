@@ -5,6 +5,8 @@ metadata:
   namespace: services
 spec:
   interval: 1m
+  install:
+    createNamespace: true
   chart:
     spec:
       chart: ./apps/service-b/helm
