@@ -3,5 +3,8 @@ kind: Kustomization
 resources:
   - helmrepositories.yaml
   - cert-manager.yaml
+  - cert-manager-namespace.yaml
   - keycloak.yaml
+  - keycloak-namespace.yaml
   - postgresql.yaml
+  - postgresql-namespace.yaml

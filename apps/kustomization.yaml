@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - service-a/helmrelease.yaml
   - service-b/helmrelease.yaml
+  - services-namespace.yaml
