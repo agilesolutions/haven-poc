@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class InfoController {
 
-    @GetMapping(value = "/info", version = "1.0.0")
+    @GetMapping(value = "/info")
     public ResponseEntity<ServiceInfo> getInfo() {
         ServiceInfo info = new ServiceInfo();
         info.setName("Service A");
