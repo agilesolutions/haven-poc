@@ -5,12 +5,17 @@ plugins {
 }
 
 group = 'com.agilesolutions'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(25)
 	}
+}
+
+ext {
+	commit = commit()
+	branchName = branchName()
 }
 
 repositories {
@@ -26,6 +31,41 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-actuator-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+String commit() {
+	return 'git rev-parse HEAD'.execute().text.trim()
+}
+
+String branchName() {
+	return hasProperty('branch.name') ? property('branch.name') : 'git branch --show-current'.execute().text.trim()
+}
+
+bootJar {
+
+	archiveFileName = './application.jar'
+
+	manifest{
+		attributes(
+				'Built-by'          : System.properties['user.name'],
+				'Build-Timestamp'   : java.time.Instant.now(),
+				'Build-Revision'    : commit,
+				'Build-Branch'      : branchName,
+				'Created-by'        : "Gradle ${gradle.gradleVersion}",
+				'Build-JDK'         : "${System.properties['java.version']} ${System.properties['java.vendor']} ${System.properties['java.vm.version']}",
+				'Build-OS'          : "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
+		)
+
+	}
+
+}
+
+task dockerBuild(type: Exec) {
+	commandLine 'docker', 'build', '-t', "agilesolutions/service-a:${version}", '.'
+}
+
+task release(type: GradleBuild) {
+	tasks = ['clean', 'build', 'dockerBuild']
 }
 
 tasks.named('test') {

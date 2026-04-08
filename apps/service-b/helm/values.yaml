@@ -1,6 +1,6 @@
 image:
-  repository: service-b
-  tag: latest
+  repository: agilesolutions/service-b
+  tag: 0.0.1
 
 service:
   port: 8080
