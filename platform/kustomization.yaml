@@ -4,3 +4,4 @@ resources:
   - helmrepositories.yaml
   - cert-manager.yaml
   - keycloak.yaml
+  - postgres.yaml
