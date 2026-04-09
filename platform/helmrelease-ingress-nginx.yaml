@@ -61,9 +61,9 @@ spec:
 
       # Enable Prometheus metrics
       metrics:
-        enabled: true
+        enabled: false
         serviceMonitor:
-          enabled: true
+          enabled: false
           namespace: ingress-nginx
 
       # Custom NGINX configuration
