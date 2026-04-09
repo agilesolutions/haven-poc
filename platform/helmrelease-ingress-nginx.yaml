@@ -27,6 +27,9 @@ spec:
       retries: 3
       strategy: rollback
   values:
+    image:
+      repository: nginx/nginx-ingress
+      tag: latest
     controller:
       # Run two replicas for high availability
       replicaCount: 1
