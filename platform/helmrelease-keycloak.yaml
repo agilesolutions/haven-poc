@@ -39,7 +39,7 @@ spec:
         nginx.ingress.kubernetes.io/rewrite-target: /
 
     postgresql:
-      enabled: true
+      enabled: false
       auth:
         postgresPassword: keycloak
         username: keycloak
@@ -63,15 +63,3 @@ spec:
       enabled: false
       serviceMonitor:
         enabled: false
-
-    postgresql:
-      enabled: true
-      auth:
-        postgresPassword: keycloak
-        username: keycloak
-        password: keycloak
-        database: keycloak
-
-      primary:
-        persistence:
-          enabled: false
