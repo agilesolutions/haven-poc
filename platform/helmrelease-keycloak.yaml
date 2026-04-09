@@ -63,3 +63,15 @@ spec:
       enabled: false
       serviceMonitor:
         enabled: false
+
+    postgresql:
+      enabled: true
+      auth:
+        postgresPassword: keycloak
+        username: keycloak
+        password: keycloak
+        database: keycloak
+
+      primary:
+        persistence:
+          enabled: false
