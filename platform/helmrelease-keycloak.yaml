@@ -58,3 +58,8 @@ spec:
       limits:
         cpu: 500m
         memory: 1Gi
+
+    metrics:
+      enabled: false
+      serviceMonitor:
+        enabled: false
