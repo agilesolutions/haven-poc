@@ -43,8 +43,8 @@ spec:
       enabled: true
       image:
         repository: bitnamilegacy/postgresql
-        tag: latest
-#        tag: 17.6.0-debian-12-r0
+#        tag: latest
+        tag: 17.6.0-debian-12-r0
 
       auth:
         postgresPassword: keycloak
