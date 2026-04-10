@@ -7,15 +7,14 @@ spec:
   interval: 10m
   url: https://charts.jetstack.io
 ---
-# Defines the OCI Helm repository where the Bitnami PostgreSQL chart is hosted
-apiVersion: source.toolkit.fluxcd.io/v1
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: codecentric
   namespace: flux-system
 spec:
-  url: https://codecentric.github.io/helm-charts
-  interval: 1h  # How often Flux checks for new chart versions
+  interval: 1h
+  url: https://github.io
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
