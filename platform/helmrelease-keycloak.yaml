@@ -1,34 +1,50 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: keycloak
-  namespace: keycloak
+  name: keycloakx
+  namespace: flux-system
 spec:
-  interval: 1h
+  interval: 10m
+
+  targetNamespace: keycloak
+  install:
+    createNamespace: true
+
   chart:
     spec:
       chart: keycloakx
-      version: "7.1.9" # Use specific version for stability
+      version: "7.1.9"
       sourceRef:
         kind: HelmRepository
-        name: codecentric
+        name: keycloakx
         namespace: flux-system
+      interval: 5m
+
   values:
-    # KeycloakX Configuration
-    keycloak:
-      replicas: 2
-      # Persistent storage configuration is essential for production
-      persistence:
-        enabled: true
-      # Database connection configuration (e.g., PostgreSQL)
-      database:
-        vendor: postgres
-        host: postgres-host
-        name: keycloak
-        username: keycloak
-        password: "keycloak"
-      # Ingress to expose keycloak
-      ingress:
-        enabled: false
-        hostname: ://example.com
-    # ... additional customizations
+    replicas: 1
+
+    image:
+      tag: "latest"
+
+    service:
+      type: ClusterIP
+
+    ingress:
+      enabled: true
+      className: nginx
+      hosts:
+        - host: keycloak.example.com
+          paths:
+            - path: /
+              pathType: Prefix
+
+    postgresql:
+      enabled: true
+
+    resources:
+      requests:
+        cpu: "200m"
+        memory: "512Mi"
+      limits:
+        cpu: "500m"
+        memory: "1Gi"
