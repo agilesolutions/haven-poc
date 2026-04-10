@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - helmrepositories.yaml
+  - helmrelease-ingress-nginx.yaml
+  - nginx-namespace.yaml
   - helmrelease-cert-manager.yaml
   - cert-manager-namespace.yaml
   - helmrelease-keycloak.yaml
   - keycloak-namespace.yaml
 #  - helmrelease-postgresql.yaml
 #  - postgresql-namespace.yaml
-  - helmrelease-ingress-nginx.yaml
-  - nginx-namespace.yaml
