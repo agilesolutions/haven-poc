@@ -4,3 +4,5 @@ resources:
   - service-a/helmrelease.yaml
   - service-b/helmrelease.yaml
   - services-namespace.yaml
+  - service-a-ingress.yaml
+  - service-b-ingress.yaml
