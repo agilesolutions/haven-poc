@@ -41,6 +41,30 @@ spec:
     postgresql:
       enabled: true
 
+    http:
+      port: 8080
+
+    startupProbe:
+      httpGet:
+        path: /health
+        port: 8080
+      failureThreshold: 30
+      periodSeconds: 10
+
+    readinessProbe:
+      httpGet:
+        path: /health/ready
+        port: 8080
+      initialDelaySeconds: 30
+      periodSeconds: 10
+
+    livenessProbe:
+      httpGet:
+        path: /health/live
+        port: 8080
+      initialDelaySeconds: 60
+      periodSeconds: 20
+
     resources:
       requests:
         cpu: "200m"
