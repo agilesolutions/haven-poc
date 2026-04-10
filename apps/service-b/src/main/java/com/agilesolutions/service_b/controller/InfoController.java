@@ -15,9 +15,9 @@ public class InfoController {
     @GetMapping(value = "/info")
     public ResponseEntity<ServiceInfo> getInfo() {
         ServiceInfo info = new ServiceInfo();
-        info.setName("Service A");
+        info.setName("Service B");
         info.setVersion("1.0.0");
-        info.setDescription("This is Service A, providing account-related information.");
+        info.setDescription("This is Service B, providing account-related information.");
         return ResponseEntity.ok(info);
     }
 
