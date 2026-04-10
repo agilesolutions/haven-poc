@@ -23,8 +23,8 @@ spec:
 #      tag: latest
 
     auth:
-      adminUser: admin
-      adminPassword: admin123   # ⚠️ vervangen via secret in productie
+      adminUser: keycloak
+      adminPassword: keycloak   # ⚠️ vervangen via secret in productie
 
     proxy: edge
 
@@ -40,7 +40,7 @@ spec:
         nginx.ingress.kubernetes.io/rewrite-target: /
 
     postgresql:
-      enabled: true
+      enabled: false
       image:
         repository: bitnamilegacy/postgresql
 #        tag: latest
