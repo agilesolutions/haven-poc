@@ -25,7 +25,8 @@ spec:
       adminUser: keycloak
       adminPassword: keycloak   # ⚠️ vervangen via secret in productie
 
-    proxy: edge
+    proxy:
+      enabled: false
 
     service:
       type: ClusterIP
