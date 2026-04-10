@@ -11,12 +11,10 @@ spec:
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: bitnami
+  name: codecentric
   namespace: flux-system
 spec:
-  type: oci
-  # Bitnami OCI registry for Helm charts
-  url: oci://registry-1.docker.io/bitnamicharts
+  url: https://codecentric.github.io/helm-charts
   interval: 1h  # How often Flux checks for new chart versions
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
