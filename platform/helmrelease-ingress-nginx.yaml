@@ -31,6 +31,8 @@ spec:
       repository: nginx/nginx-ingress
       tag: latest
     controller:
+      admissionWebhooks:
+        enabled: false
       # Run two replicas for high availability
       replicaCount: 1
 
