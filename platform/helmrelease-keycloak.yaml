@@ -43,7 +43,7 @@ spec:
 
     replicas: 1
 
-    startupProbe: |
+    startupProbe:
       failureThreshold: 60
       periodSeconds: 10
 
