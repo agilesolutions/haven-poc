@@ -21,6 +21,22 @@ spec:
       interval: 5m
 
   values:
+
+    command:
+      - "/opt/keycloak/bin/kc.sh"
+      - "start"
+      - "--http-port=8080"
+      - "--hostname-strict=false"
+
+    extraEnv: |
+      - name: KEYCLOAK_ADMIN
+        value: admin
+      - name: KEYCLOAK_ADMIN_PASSWORD
+        value: admin
+      - name: JAVA_OPTS_APPEND
+        value: >-
+          -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
+
     replicas: 1
 
     service:
@@ -40,13 +56,6 @@ spec:
 
     http:
       port: 8080
-
-    startupProbe:
-      httpGet:
-        path: /health
-        port: 8080
-      failureThreshold: 30
-      periodSeconds: 10
 
     resources:
       requests:
