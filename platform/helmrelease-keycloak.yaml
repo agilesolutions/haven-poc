@@ -29,6 +29,7 @@ spec:
 #      - "--hostname-strict=false"
 #      - "--verbose"
       - "start-dev"
+      - "--features organization"
 #      - "--optimized"
 
     extraEnv: |
@@ -36,11 +37,16 @@ spec:
         value: admin
       - name: KEYCLOAK_ADMIN_PASSWORD
         value: admin
-      - name: JAVA_OPTS_APPEND
-        value: >-
-          -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
+#      - name: JAVA_OPTS_APPEND
+#        value: >-
+#          -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
 
     replicas: 1
+
+    startupProbe:
+      failureThreshold: 30
+      periodSeconds: 10
+
 
     service:
       type: ClusterIP
