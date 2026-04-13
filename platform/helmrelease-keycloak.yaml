@@ -27,6 +27,7 @@ spec:
       - "start"
       - "--http-port=8080"
       - "--hostname-strict=false"
+      - "--optimized"
 
     extraEnv: |
       - name: KEYCLOAK_ADMIN
