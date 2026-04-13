@@ -28,7 +28,6 @@ spec:
       - "--http-port=8080"
       - "--hostname-strict=false"
       - "--verbose"
-      - "start-dev"
 #      - "--optimized"
 
     extraEnv: |
