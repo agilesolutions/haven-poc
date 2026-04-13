@@ -44,9 +44,7 @@ spec:
     replicas: 1
 
     startupProbe:
-      failureThreshold: 30
-      periodSeconds: 10
-
+      enabled: false
 
     service:
       type: ClusterIP
