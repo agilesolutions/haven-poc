@@ -37,6 +37,8 @@ spec:
         value: admin
       - name: KEYCLOAK_ADMIN_PASSWORD
         value: admin
+      - name: KC_HEALTH_ENABLED
+        value: "false"
 #      - name: JAVA_OPTS_APPEND
 #        value: >-
 #          -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
