@@ -29,7 +29,6 @@ spec:
 #      - "--hostname-strict=false"
 #      - "--verbose"
       - "start-dev"
-      - "--features organization"
 #      - "--optimized"
 
     extraEnv: |
