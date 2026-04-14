@@ -43,9 +43,17 @@ spec:
 
     replicas: 1
 
-#    startupProbe:
-#      failureThreshold: 60
-#      periodSeconds: 10
+    startupProbe:
+      enabled: false
+      failureThreshold: 60
+      httpGet:
+        path: /auth/health
+        port: http-internal
+        scheme: HTTP
+      initialDelaySeconds: 15
+      periodSeconds: 5
+      successThreshold: 1
+      timeoutSeconds: 1
 
     service:
       type: ClusterIP
