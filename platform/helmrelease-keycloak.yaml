@@ -37,17 +37,10 @@ spec:
       - name: KEYCLOAK_ADMIN_PASSWORD
         value: admin
       - name: KC_HEALTH_ENABLED
-        value: "false"
+        value: "true"
 #      - name: JAVA_OPTS_APPEND
 #        value: >-
 #          -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
-
-    startupProbe:
-      initialDelaySeconds: 120
-      periodSeconds: 60
-      successThreshold: 1
-      timeoutSeconds: 1
-      failureThreshold: 30
 
     replicas: 1
 
