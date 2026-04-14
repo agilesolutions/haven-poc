@@ -42,6 +42,13 @@ spec:
 #        value: >-
 #          -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
 
+    startupProbe:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      successThreshold: 1
+      timeoutSeconds: 1
+      failureThreshold: 30
+
     replicas: 1
 
     service:
