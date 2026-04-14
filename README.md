@@ -126,6 +126,15 @@ Service B
    v
 Business logic executed
 ```
+### Keycloak configuration
+- docker run --name keycloak -d -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -p 8080:8080 quay.io/keycloak/keycloak start-dev --features organization
+- kubectl -n keycloak port-forward pod/keycloak-keycloakx-0 8080
+- flux get helmreleases -A
+- kubectl logs -f pod/keycloak-keycloakx-0 -n keycloak
+- kubectl describe  pod/keycloak-keycloakx-0 -n keycloak
+- kubectl logs -f deploy/kustomize-controller -n flux-system
+- [Configure Keycloak realm and clients](https://medium.com/@phat.tan.nguyen/oauth-2-0-the-client-credentials-grant-type-with-keycloak-2debb88a1c70)
+- curl --location 'http://localhost:8080/auth/realms/demo/protocol/openid-connect/token' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=client_credentials' --data-urlencode 'client_id=service-a' --data-urlencode 'client_secret=9ZGDYDxB7eQH1SdoK81u9EFlrB4b3NYc'
 ## Observability (LGTM stack)
 ```
 Spring Boot Service

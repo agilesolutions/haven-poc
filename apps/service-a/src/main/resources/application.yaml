@@ -2,6 +2,17 @@ spring:
   application:
     name: service-a
 
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: service-a
+            client-secret: cZ5Rb3UWpsb7Hm0BfnYmg5EWrJVDA2rc
+            authorization-grant-type: client_credentials
+        provider:
+          keycloak:
+            token-uri: http://keycloak/auth/realms/demo/protocol/openid-connect/token
 management:
   endpoints:
     web:
