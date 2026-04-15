@@ -26,8 +26,8 @@ spec:
       - "/opt/keycloak/bin/kc.sh"
 #      - "start"
       - "start-dev"
-      - "--http-port=8080"
-      - "--hostname=keycloak.local"
+#      - "--http-port=8080"
+#      - "--hostname=keycloak.local"
       - "--verbose"
 #      - "--optimized"
 
