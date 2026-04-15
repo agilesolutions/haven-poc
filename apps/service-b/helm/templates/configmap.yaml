@@ -7,3 +7,9 @@ data:
     app:
       featureToggle: {{ .Values.config.featureToggle }}
       maxOrders: {{ .Values.config.maxOrders }}
+    spring:
+      security:
+        oauth2:
+          resourceserver:
+            jwt:
+              issuer-uri: {{ .Values.oauth2.issuerUri }}

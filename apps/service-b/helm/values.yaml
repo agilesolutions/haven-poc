@@ -13,3 +13,6 @@ ingress:
 config:
   featureToggle: true
   maxOrders: 100
+
+oauth2:
+  issuerUri: http://keycloak-keycloakx-headless.keycloak.svc.cluster.local/realms/demo
