@@ -1,6 +1,7 @@
 package com.agilesolutions.service_a.controller;
 
 import com.agilesolutions.service_a.model.ServiceInfo;
+import com.agilesolutions.service_a.service.InfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class InfoController {
 
+    private final InfoService infoService;
+
     @GetMapping(value = "/info")
     public ResponseEntity<ServiceInfo> getInfo() {
-        ServiceInfo info = new ServiceInfo();
-        info.setName("Service A");
-        info.setVersion("1.0.0");
-        info.setDescription("This is Service A, providing account-related information.");
+
+        ServiceInfo info = infoService.getExternalInfo();
         return ResponseEntity.ok(info);
     }
 
