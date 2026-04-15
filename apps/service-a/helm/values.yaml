@@ -17,4 +17,4 @@ config:
 oidc:
   clientId: service-a
   clientSecret: lvmDY4QItURQCBL8Ax4MhGGNKQSAKxrB
-  tokenUri: http://keycloak-keycloakx-headless.keycloak.svc.cluster.local/auth/realms/demo/protocol/openid-connect/token
+  tokenUri: http://keycloak-keycloakx-http.keycloak.svc.cluster.local/auth/realms/demo/protocol/openid-connect/token
