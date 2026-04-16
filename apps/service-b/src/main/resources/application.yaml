@@ -15,7 +15,12 @@ management:
         include: health,metrics,info
   tracing:
     sampling:
-      probability: 1.0
+      probability: 1.0 # 100% sampling for development
+
+otel:
+  exporter:
+    otlp:
+      endpoint: http://otel-collector.observability:4317
 
 service:
   name: "Service B"

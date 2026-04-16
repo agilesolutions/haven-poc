@@ -151,6 +151,25 @@ OpenTelemetry Collector
    v
 Grafana dashboards
 ```
+## OpenTelemetry configuration
+- Add OTel Java agent to Spring Boot app (e.g., via Helm values.yaml)
+- Configure OTel Collector to receive telemetry data and export to LGTM stack
+- Use Grafana to visualize logs, metrics, and traces for troubleshooting and performance monitoring
+- Example OTel Collector config:
+```
+Spring Boot services
+        |
+        v
+OpenTelemetry Collector
+        |
+   +----+--------+---------+
+   |             |         |
+  Loki         Tempo    Prometheus
+ (logs)       (traces)   (metrics)
+        |
+        v
+      Grafana
+```
 ## External access flow
 ```
 User / Client
