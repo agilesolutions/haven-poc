@@ -27,13 +27,17 @@ flux bootstrap github --owner=agilesolutions --repository=haven-poc --branch=mas
 ```
 5. Monitor the deployment status using FluxCD and kubectl:
 ```bash
+# To check the status of the Kustomizations, you can run:
 flux get kustomizations
+# To watch for changes in the Kustomizations, you can run:
 flux get kustomizations --watch
 # To check the status of the Helm releases, you can run:
 flux get helmreleases -A
+# To check the status of the pods in your cluster, you can run:
 kubectl get pods -A
 # To check the logs of the Keycloak pod, you can run:
 kubectl logs -f pod/keycloak-keycloakx-0 -n keycloak
+# To check the logs of the FluxCD controllers, you can run:
 kubectl logs -f deploy/kustomize-controller -n flux-system
 # To check the Nginx Ingress Controller configuration, you can run:
 kubectl exec -n ingress-nginx deploy/ingress-nginx-controller -- cat /etc/nginx/nginx.conf

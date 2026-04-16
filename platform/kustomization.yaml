@@ -8,3 +8,8 @@ resources:
   - cert-manager-namespace.yaml
   - helmrelease-keycloak.yaml
   - keycloak-namespace.yaml
+  - lgtm-namespace.yaml
+  - helmrelease-grafana.yaml
+  - helmrelease-loki.yaml
+  - helmrelease-tempo.yaml
+  - helmrelease-prometheus.yaml
