@@ -3,8 +3,15 @@ kind: Ingress
 metadata:
   name: service-a-ingress
   namespace: services
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-haven"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - service-a.local
+      secretName: haven-tls
   rules:
     - host: service-a.local
       http:

@@ -8,5 +8,3 @@ resources:
   - cert-manager-namespace.yaml
   - helmrelease-keycloak.yaml
   - keycloak-namespace.yaml
-#  - helmrelease-postgresql.yaml
-#  - postgresql-namespace.yaml

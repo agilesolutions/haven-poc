@@ -15,4 +15,4 @@ config:
   maxOrders: 100
 
 oauth2:
-  issuerUri: http://keycloak-keycloakx-http.keycloak.svc.cluster.local/auth/realms/demo
+  issuerUri: http://keycloak-keycloakx-http.keycloak/auth/realms/demo
