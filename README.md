@@ -4,10 +4,10 @@ Demonstrates set of simple microservices, implemented in different languages, an
 [Central idea is to show how to use GitOps](./docus/GitOps.md) (FluxCD) to manage the deployment of a microservices application on Kubernetes, with a focus on configuration management, service-to-service authentication, and observability.
 ## Setup bootstrapping FluxCD and Deploy the Application
 1. How to bootstrap FluxCD in your Kubernetes cluster:
-```bash
+```
 flux bootstrap github --owner=agilesolutions --repository=haven-poc --branch=master --path=clusters/dev --personal
 ```
-
+Read full instructions in [docus/fluxcd.md](./docus/fluxcd.md)
 
 ## Structure GITOPS repo
 ```
