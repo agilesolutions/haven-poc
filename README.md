@@ -1,6 +1,7 @@
 # Haven POC reference project 
 This is a reference project for the Haven POC. [Haven](https://haven.commonground.nl/over-haven) is a standard for platform-independent cloud hosting and is part of the [Common Ground Initiative](https://commonground.nl/).
 Demonstrates set of simple microservices, implemented in different languages, and using different databases. The project is used to test the Haven POC implementation and to demonstrate its capabilities.(FluxCD + Helm + Spring Boot + Keycloak + LGTM + service-to-service auth).
+[Central idea is to show how to use GitOps](./docus/GitOps.md) (FluxCD) to manage the deployment of a microservices application on Kubernetes, with a focus on configuration management, service-to-service authentication, and observability.
 ## Setup bootstrapping FluxCD and Deploy the Application
 1. How to bootstrap FluxCD in your Kubernetes cluster:
 ```bash
