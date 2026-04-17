@@ -9,7 +9,9 @@ resources:
   - helmrelease-keycloak.yaml
   - keycloak-namespace.yaml
   - lgtm-namespace.yaml
-  - helmrelease-grafana.yaml
-  - helmrelease-loki.yaml
-  - helmrelease-tempo.yaml
-  - helmrelease-prometheus.yaml
+# Disable for local POC (heavy)
+#  - helmrelease-grafana.yaml
+#  - helmrelease-loki.yaml
+#  - helmrelease-tempo.yaml
+#  - helmrelease-prometheus.yaml
+  - helmrelease-lgtm.yaml

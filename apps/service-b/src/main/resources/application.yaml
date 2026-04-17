@@ -17,10 +17,19 @@ management:
     sampling:
       probability: 1.0 # 100% sampling for development
 
-otel:
-  exporter:
-    otlp:
-      endpoint: http://otel-collector.observability:4317
+  otlp:
+    metrics:
+      export:
+        url: http://localhost:4318/v1/metrics
+  opentelemetry:
+    tracing:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/traces
+    logging:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/logs
 
 service:
   name: "Service B"

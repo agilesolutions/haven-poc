@@ -156,16 +156,16 @@ Grafana dashboards
 - Configure OTel Collector to receive telemetry data and export to LGTM stack
 - Use Grafana to visualize logs, metrics, and traces for troubleshooting and performance monitoring
 - Example OTel Collector config:
+Note: This is a simplified example. In production, you would need to configure exporters, processors, and receivers according to your needs.
 ```
-Spring Boot services
-        |
-        v
-OpenTelemetry Collector
-        |
-   +----+--------+---------+
-   |             |         |
-  Loki         Tempo    Prometheus
- (logs)       (traces)   (metrics)
+Apps
+  |
+  v
+OTel Gateway (in chart)
+  |
+  +--> Loki   (logs)
+  +--> Tempo  (traces)
+  +--> Prom   (metrics)
         |
         v
       Grafana

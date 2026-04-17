@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
@@ -19,8 +21,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Configuration
-@EnableWebFluxSecurity
-@EnableReactiveMethodSecurity
+@EnableMethodSecurity
 public class WebSecurityConfiguration {
 
     private static final String[] WHITELIST = {"/healthCheck",
@@ -38,37 +39,8 @@ public class WebSecurityConfiguration {
                 .authorizeExchange(exchanges -> exchanges
                         .pathMatchers(WHITELIST).permitAll()
                         .anyExchange().authenticated())
-                .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwtSpec ->
-                        jwtSpec.jwtDecoder(jwtDecoder(authorizationServerProperties)).
-                                jwtAuthenticationConverter(jwtAuthenticationConverter())));
+                .oauth2ResourceServer(oauth -> oauth.jwt(Customizer.withDefaults()));
         return http.build();
     }
-
-    @Bean
-    public ReactiveJwtDecoder jwtDecoder(AuthorizationServerProperties authorizationServerProperties) {
-        return NimbusReactiveJwtDecoder.withJwkSetUri(authorizationServerProperties.getUrl() + "/.well-known/jwks.json").build();
-    }
-
-    @Bean
-    public Converter<Jwt, ? extends Mono<? extends AbstractAuthenticationToken>> jwtAuthenticationConverter() {
-        return new ReactiveJwtAuthenticationConverterAdapter(jwt -> {
-            JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
-            converter.setJwtGrantedAuthoritiesConverter(this::extractAuthoritiesFromJwt);
-            return converter.convert(jwt);
-        });
-    }
-
-    private Collection<GrantedAuthority> extractAuthoritiesFromJwt(Jwt jwt) {
-        // Map "roles" claim to ROLE_* authorities
-        Collection<String> roles = jwt.getClaimAsStringList("roles");
-        if (roles == null) {
-            roles = java.util.Collections.emptyList();
-        }
-        return roles.stream()
-                .map(role -> "ROLE_" + role.toUpperCase())
-                .map(org.springframework.security.core.authority.SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
-    }
-
 
 }
