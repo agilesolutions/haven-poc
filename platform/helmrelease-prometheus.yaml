@@ -5,11 +5,14 @@ metadata:
   namespace: observability
 spec:
   interval: 5m
+  install:
+    createNamespace: true
+
   chart:
     spec:
       chart: prometheus
-      version: "25.0.0"
+      version: "29.2.1"
       sourceRef:
         kind: HelmRepository
-        name: grafana
+        name: prometheus-community
         namespace: flux-system

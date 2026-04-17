@@ -15,11 +15,23 @@ public class InfoController {
 
     private final InfoService infoService;
 
-    @GetMapping(value = "/info")
-    public ResponseEntity<ServiceInfo> getInfo() {
+    private final ServiceInfo serviceInfo;
+
+    @GetMapping(value = "/remoteInfo")
+    public ResponseEntity<ServiceInfo> getRemoteInfo() {
 
         ServiceInfo info = infoService.getExternalInfo();
         return ResponseEntity.ok(info);
     }
+
+    @GetMapping(value = "/info")
+    public ResponseEntity<ServiceInfo> getInfo() {
+        ServiceInfo info = new ServiceInfo();
+        info.setName("Service A");
+        info.setVersion("1.0.0");
+        info.setDescription("This is Service A, providing account-related information.");
+        return ResponseEntity.ok(info);
+    }
+
 
 }
