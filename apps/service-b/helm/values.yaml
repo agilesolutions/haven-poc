@@ -10,9 +10,11 @@ ingress:
   className: nginx
   host: service-b.local
 
-config:
+application:
   featureToggle: true
-  maxOrders: 100
+  name: "Service A"
+  description: "Demo service"
+  version: "0.0.1"
 
 oauth2:
   issuerUri: http://keycloak-keycloakx-http.keycloak/auth/realms/demo

@@ -3,7 +3,7 @@ package com.agilesolutions.service_b.model;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "service")
+@ConfigurationProperties(prefix = "application.info")
 @Data
 public class ServiceInfo {
 

@@ -4,9 +4,12 @@ metadata:
   name: {{ include "app.fullname" . }}-configmap
 data:
   application.yaml: |
-    app:
-      featureToggle: {{ .Values.config.featureToggle }}
-      maxOrders: {{ .Values.config.maxOrders }}
+    application:
+      info:
+        name: {{ .Values.application.name }}
+        description: {{ .Values.application.description }}
+        version: {{ .Values.application.version }}
+        featureToggle: {{ .Values.application.featureToggle }}
     spring:
       security:
         oauth2:
