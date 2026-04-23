@@ -20,16 +20,16 @@ management:
   otlp:
     metrics:
       export:
-        url: http://lgtm-gateway.observability:4317
+        url: http://lgtm-gateway.observability:4318/v1/metrics
   opentelemetry:
     tracing:
       export:
         otlp:
-          endpoint: http://lgtm-gateway.observability:4317
+          endpoint: http://lgtm-gateway.observability:4318/v1/traces
     logging:
       export:
         otlp:
-          endpoint: http://lgtm-gateway.observability:4317
+          endpoint: http://lgtm-gateway.observability:4318/v1/logs
 
 service:
   name: "Service B"
