@@ -13,6 +13,11 @@ spring:
         provider:
           keycloak:
             token-uri: http://keycloak/auth/realms/demo/protocol/openid-connect/token
+
+  otel:
+    exporter:
+      otlp:
+        endpoint: http://lgtm-loki-gateway.observability.svc.cluster.local:4318/v1/traces
 management:
   endpoints:
     web:

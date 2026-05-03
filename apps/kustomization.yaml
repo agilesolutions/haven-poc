@@ -6,3 +6,5 @@ resources:
   - services-namespace.yaml
   - service-a-ingress.yaml
   - service-b-ingress.yaml
+  - external-secrets-sa.yaml
+  - cluster-secret-store.yaml

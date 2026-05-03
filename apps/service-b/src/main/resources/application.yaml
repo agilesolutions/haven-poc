@@ -1,12 +1,28 @@
 spring:
   application:
     name: service-b
+  config:
+    import: optional:file:/etc/secrets/db/
 
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://keycloak/realms/demo
+
+app:
+  db:
+    password: ${db-password}
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:5432/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${app.db.password}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
 
 management:
   endpoints:
