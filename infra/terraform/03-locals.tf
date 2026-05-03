@@ -5,7 +5,7 @@ locals {
   cluster_name = "${var.business_unit}-${var.environment}"
   search-name  = "${var.resoure_group_name}-${var.environment}"
   # Common tags to be assigned to all resources
-  service_name = "AI Services"
+  service_name = "haven_poc"
   owner        = "Agile Solutions"
   common_tags = {
     Service = local.service_name

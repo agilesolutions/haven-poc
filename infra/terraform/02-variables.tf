@@ -15,7 +15,7 @@ variable "environment" {
 variable "resoure_group_name" {
   description = "Resource Group Name"
   type        = string
-  default     = "ai"
+  default     = "services"
 }
 # 4. Resource Group Location
 variable "resoure_group_location" {
@@ -54,28 +54,18 @@ variable "partition_count" {
   }
 }
 
-variable "mysql_db_name" {
-  description = "Azure MySQL Database Name"
-  type        = string
-  default     = "aidb"
-}
-# DB Username - Enable Sensitive flag
-variable "mysql_db_username" {
-  description = "Azure MySQL Database Administrator Username"
-  type        = string
-  default     = "dbadmin"
-}
-# DB Password - Enable Sensitive flag
-variable "mysql_db_password" {
-  description = "Azure MySQL Database Administrator Password"
-  type        = string
-  sensitive   = true
-  default     = "RedhatAiAgent"
+variable "postgres_admin_user" {
+  default = "pgadmin"
 }
 
-  # DB Schema Name
-variable "mysql_db_schema" {
-  description = "Azure MySQL Database Schema Name"
-  type        = string
-  default     = "ai"
+# The password must be at least 8 characters long and contain a combination of uppercase letters, lowercase letters, numbers, and special characters.
+# export TF_VAR_postgres_admin_password="VeryStrongPassword123!"
+# For security reasons, it's recommended to set this environment variable in your terminal or use a secure secrets management solution to handle sensitive information like database passwords.
+variable "postgres_admin_password" {
+  sensitive = true
 }
+
+variable "db_name" {
+  default = "info"
+}
+

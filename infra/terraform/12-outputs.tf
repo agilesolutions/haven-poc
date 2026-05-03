@@ -9,16 +9,6 @@ output "resource_group_name" {
   # Argument Reference
   value = azurerm_resource_group.aks_rg.name
 }
-output "mysql_server_fqdn" {
-  description = "MySQL Server FQDN"
-  value = azurerm_mysql_server.mysql_server.fqdn
-}
-
-output "openai_primary_key" {
-  description = "The primary access key for the Cognitive Service Account"
-  # Argument Reference
-  value = azurerm_ai_services.ai_service.primary_access_key
-}
 
 output "instrumentation_key" {
   description = "The Instrumentation Key for this Application Insights component"
@@ -34,4 +24,16 @@ output "app_id" {
 
 output "eso_client_id" {
   value = azurerm_user_assigned_identity.eso.client_id
+}
+
+output "postgres_fqdn" {
+  value = azurerm_postgresql_flexible_server.postgres.fqdn
+}
+
+output "postgres_database" {
+  value = azurerm_postgresql_flexible_server_database.payments.name
+}
+
+output "keyvault_uri" {
+  value = azurerm_key_vault.services_kv.vault_uri
 }
