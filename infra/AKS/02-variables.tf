@@ -69,3 +69,9 @@ variable "db_name" {
   default = "info"
 }
 
+# The Keycloak admin password must be at least 8 characters long and contain a combination of uppercase letters, lowercase letters, numbers, and special characters.
+# export TF_VAR_keycloak_admin_password="AnotherStrongPassword123!"
+variable "keycloak_admin_password" {
+  sensitive = true
+}
+

@@ -31,7 +31,7 @@ output "postgres_fqdn" {
 }
 
 output "postgres_database" {
-  value = azurerm_postgresql_flexible_server_database.payments.name
+  value = azurerm_postgresql_flexible_server_database.keycloak.name
 }
 
 output "keyvault_uri" {
