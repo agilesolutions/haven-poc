@@ -1,4 +1,3 @@
-::: {align="center"}
 # ⚓ Haven POC
 
 ### Een cloud-native referentiearchitectuur voor Common Ground
