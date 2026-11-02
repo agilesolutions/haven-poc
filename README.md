@@ -356,12 +356,3 @@ Nuttige startpunten:
 -   [Grafana LGTM-stack](https://grafana.com/oss/)
 
 ------------------------------------------------------------------------
-
-::: {align="center"}
-### Van Git-commit naar een beveiligde, inzichtelijk te beheren service op Haven.
-
-**Een groeiende referentie-implementatie voor cloud-native workloads
-binnen Common Ground.**
-
-Voor leren, experimenteren en architectuurvalidatie.
-:::
