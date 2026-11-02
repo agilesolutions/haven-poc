@@ -27,7 +27,7 @@ specifieke infrastructuurimplementatie.
 
 **Haven** biedt een standaard voor platformonafhankelijke cloudhosting
 binnen de Nederlandse overheid en het ecosysteem van [Common
-Ground](https://commonground.nl/).
+Ground](https://haven.commonground.nl/).
 
 Deze repository verkent dat uitgangspunt met een praktische
 referentie-implementatie. De oplossing brengt de platformvoorzieningen
